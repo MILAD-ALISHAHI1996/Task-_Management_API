@@ -23,9 +23,9 @@ Create new task → POST /api/tasks
 
 Fetch task list → GET /api/tasks
 
-Edit task → PATCH /api/tasks/:id
+Edit task → PUT /api/tasks/:id
 
-Toggle task status → PATCH /api/tasks/:id/status
+Toggle task status → PATCH /api/tasks/:id/toggle
 
 Delete task → DELETE /api/tasks/:id
 
