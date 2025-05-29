@@ -1,31 +1,43 @@
-# ✅ Task Management API
+🎯 Project Progress Overview – Completed Tasks
+📦 Initial Setup:
+Initialized a Node.js project with Express
 
-A robust and scalable **RESTful API** built with **Node.js**, **Express**, **PostgreSQL**, and **Prisma ORM** for managing tasks with full **authentication**, **authorization**, and **testing** support.
+Installed required packages (express, prisma, pg, bcrypt, jsonwebtoken, dotenv, etc.)
 
----
+Defined folder and file structure
 
-## 🚀 Features
+🗃 Database Integration:
+Installed and configured PostgreSQL
 
-- 🔐 User Authentication (Register & Login using JWT)
-- 📝 Task Management (CRUD + Toggle Complete)
-- 📁 PostgreSQL Database with Prisma ORM
-- 🧪 Unit Testing with Jest + Supertest
-- 📬 Full Postman Collection for testing endpoints
-- 📄 Clean code architecture with Controllers, Routes, Middleware
+Defined Prisma models: User, Task, Category
 
----
+Created and applied initial database migration using Prisma
 
-## 🧱 Tech Stack
+🔐 Authentication:
+User Registration → POST /api/auth/register
 
-- **Backend:** Node.js + Express
-- **Database:** PostgreSQL
-- **ORM:** Prisma
-- **Authentication:** JWT
-- **Password Hashing:** bcrypt
-- **Testing:** Jest, Supertest
-- **Dev Tools:** nodemon, dotenv
+User Login with JWT generation → POST /api/auth/login
 
----
+📝 Task Management:
+Create new task → POST /api/tasks
 
-## 🧩 Folder Structure
+Fetch task list → GET /api/tasks
+
+Edit task → PATCH /api/tasks/:id
+
+Toggle task status → PATCH /api/tasks/:id/status
+
+Delete task → DELETE /api/tasks/:id
+
+🧪 Testing:
+Wrote unit tests for auth and task modules using Jest
+
+Successfully passed all test cases
+
+🧾 Documentation:
+Prepared full documentation for all API endpoints
+
+Created a complete Postman Collection for API testing
+
+Compiled everything into a clean and professional README.md
 
