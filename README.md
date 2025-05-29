@@ -1,38 +1,43 @@
+🎯 Project Progress Overview – Completed Tasks
+📦 Initial Setup:
+Initialized a Node.js project with Express
 
-# ✅ Task Management API
+Installed required packages (express, prisma, pg, bcrypt, jsonwebtoken, dotenv, etc.)
 
-## 🎯 وضعیت تسک‌های انجام‌شده
+Defined folder and file structure
 
-### **📦** راه‌اندازی اولیه:
-- [x] ایجاد پروژه Node.js و Express
-- [x] نصب پکیج‌های مورد نیاز (express, prisma, pg, bcrypt, jsonwebtoken, dotenv و ...)
-- [x] تعریف ساختار فولدرها و فایل‌ها
+🗃 Database Integration:
+Installed and configured PostgreSQL
 
-### 🗃 اتصال به دیتابیس:
-- [x] نصب و راه‌اندازی PostgreSQL
-- [x] تعریف مدل‌های Prisma: User, Task, Category
-- [x] ایجاد و اجرای Migrate اولیه با Prisma
+Defined Prisma models: User, Task, Category
 
-### 🔐 احراز هویت (Authentication):
-- [x] ثبت‌نام کاربر (`POST /api/auth/register`)
-- [x] ورود کاربر و دریافت JWT (`POST /api/auth/login`)
+Created and applied initial database migration using Prisma
 
-### 📝 مدیریت تسک‌ها:
-- [x] ایجاد تسک جدید (`POST /api/tasks`)
-- [x] دریافت لیست تسک‌ها (`GET /api/tasks`)
-- [x] ویرایش تسک (`PATCH /api/tasks/:id`)
-- [x] تغییر وضعیت تسک (`PATCH /api/tasks/:id/status`)
-- [x] حذف تسک (`DELETE /api/tasks/:id`)
+🔐 Authentication:
+User Registration → POST /api/auth/register
 
-### 🧪 تست‌نویسی:
-- [x] نوشتن تست‌های auth و task با Jest
-- [x] اجرای موفق تست‌ها
+User Login with JWT generation → POST /api/auth/login
 
-### 🧾 مستندسازی:
-- [x] تهیه داکیومنت کامل برای همه‌ی APIها
-- [x] ساخت Postman Collection تست
-- [x] آماده‌سازی فایل README.md
+📝 Task Management:
+Create new task → POST /api/tasks
 
----
+Fetch task list → GET /api/tasks
 
-MILAD-ALISHAHI-1404/03/08
+Edit task → PATCH /api/tasks/:id
+
+Toggle task status → PATCH /api/tasks/:id/status
+
+Delete task → DELETE /api/tasks/:id
+
+🧪 Testing:
+Wrote unit tests for auth and task modules using Jest
+
+Successfully passed all test cases
+
+🧾 Documentation:
+Prepared full documentation for all API endpoints
+
+Created a complete Postman Collection for API testing
+
+Compiled everything into a clean and professional README.md
+
