@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "e70e8795-de9f-459b-8d06-a644a3113674",
+		"name": "Task Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37627390",
+		"_collection_link": "https://www.postman.com/iran-bicom/workspace/task-management-api/collection/37627390-e70e8795-de9f-459b-8d06-a644a3113674?action=share&source=collection_link&creator=37627390"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Ali\",\r\n  \"email\": \"ali@test.com\",\r\n  \"password\": \"12345678\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/auth/register",
+				"description": "StartFragment\n\n## 🔐 ثبت‌نام کاربر\n\n**📍 POST /api/auth/register**\n\n📌 ایجاد حساب کاربری جدید  \n  \n🔓 بدون نیاز به توکن\n\n🧾 فیلدهای ورودی:\n\n- `name`: اجباری (string)\n    \n- `email`: اجباری (string, unique)\n    \n- `password`: اجباری (string, حداقل 6 کاراکتر)\n    \n\n📤 پاسخ موفق:\n\n- status: `201 Created`\n    \n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"ali@test.com\",\r\n  \"password\": \"12345678\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/auth/login",
+				"description": "StartFragment\n\n## 🔐 ورود کاربر\n\n**📍 POST /api/auth/login**\n\n📌 ورود به حساب کاربری و دریافت توکن  \n  \n🔓 بدون نیاز به توکن قبلی\n\n🧾 فیلدهای ورودی:\n\n- `email`: اجباری (string)\n    \n- `password`: اجباری (string)\n    \n\n📤 پاسخ موفق:\n\n- status: `200 OK`\n    \n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{vault:authorization-secret}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"تمرین تست\",\r\n  \"description\": \"نوشتن تست با postman\",\r\n  \"dueDate\": \"2025-12-31T00:00:00.000Z\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/tasks",
+				"description": "📌 ایجاد یک تسک جدید برای کاربر لاگین‌شده\n\n🔐 نیاز به توکن دارد (Authorization header)\n\n🧾 فیلدها:\n\n- title: اجباری (string)\n    \n- description: اختیاری\n    \n- dueDate: اختیاری (فرمت ISO)\n    \n- categoryId: ID معتبر از جدول Category (اختیاری یا اجباری بسته به schema)\n    \n\n📤 پاسخ موفق:\n\n- status 201\n    \n- داده تسک جدید + اطلاعات مرتبط"
+			},
+			"response": []
+		},
+		{
+			"name": "list-task",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{vault:authorization-secret}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/tasks",
+				"description": "StartFragment\n\n## ✅ دریافت لیست تسک‌ها\n\n**📍 GET /api/tasks**\n\n📌 گرفتن تمام تسک‌های کاربر فعلی  \n  \n🔐 نیاز به توکن دارد\n\n📤 پاسخ موفق:\n\n- status: `200 OK`\n    \n- آرایه‌ای از تسک‌های کاربر لاگین‌شده\n    \n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE _TASK",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{vault:authorization-secret}}"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:5000/api/tasks/3",
+				"description": "StartFragment\n\n**📍 DELETE /api/tasks/:id**\n\n📌 حذف تسک موردنظر با ID مشخص\n\n🔐 نیاز به توکن دارد\n\n📤 پاسخ موفق:\n\n- status: `200 OK`\n    \n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE_TASK",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{vault:authorization-secret}}"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"ویرایش شده\",\r\n  \"description\": \"جزئیات جدید\",\r\n  \"dueDate\": \"2025-12-20T00:00:00.000Z\"\r\n  \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/tasks/4",
+				"description": "StartFragment\n\n## ✅ ویرایش تسک\n\n**📍 PATCH /api/tasks/:id**\n\n📌 ویرایش عنوان، توضیح، تاریخ، دسته‌بندی تسک  \n  \n🔐 نیاز به توکن دارد\n\n🧾 فیلدهای قابل ویرایش:\n\n- `title`\n    \n- `description`\n    \n- `dueDate`\n    \n- `categoryId`\n    \n\n📤 پاسخ موفق:\n\n- status: `200 OK`\n    \n- تسک ویرایش‌شده\n    \n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "TO_COMPLETE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{vault:authorization-secret}}"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": "http://localhost:5000/api/tasks/4/toggle",
+				"description": "#### ♻️ PATCH /api/tasks/:id/toggle\n\nتغییر وضعیت تسک (complete ↔ incomplete)\n\n- ⛔ نیاز به احراز هویت\n    \n- { \"id\": 3, \"status\": \"complete\" }"
+			},
+			"response": []
+		}
+	]
+}
